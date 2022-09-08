@@ -1,8 +1,11 @@
 <html>
 <body>
 
-Welcome <?php echo $_POST["name"]; ?><br>
-Your email address is: <?php echo $_POST["email"]; ?>
+Name: <?php echo $_POST["name"]; ?>
+Email: <?php echo $_POST["email"]; ?>
+Age: <?php echo $_POST["alder"]; ?>
+Shoe size: <?php echo $_POST["skostørrelse"]; ?>
+
 
 </body>
 </html>
