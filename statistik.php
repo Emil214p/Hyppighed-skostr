@@ -13,3 +13,12 @@ if ($result->num_rows > 0) {
   echo "0 results";
 }
 $conn->close();
+?>
+<html>
+  <head>
+ </head>
+  <body>
+      <p><a href="index.php">Start</a></p>
+      <p><a href="statistik1.php">Charts</a></p>
+  </body>
+</html>
