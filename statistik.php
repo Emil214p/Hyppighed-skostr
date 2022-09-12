@@ -1,11 +1,15 @@
-<html>
-<body>
+<?php
+require_once 'login.php';
 
-Name: <?php echo $_POST["name"]; ?>
-Email: <?php echo $_POST["email"]; ?>
-Age: <?php echo $_POST["alder"]; ?>
-Shoe size: <?php echo $_POST["skostørrelse"]; ?>
+$sql = "SELECT SkoID, Navn, Email, Alder, Skostoerelse FROM skostoerrelse";
+$result = $conn->query($sql);
 
-
-</body>
-</html>
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["SkoID"]. "<br>" . "Navn: ". $row["Navn"]. "<br>" ."Email: " . $row["Email"]. "<br>" ."Alder: ".$row["Alder"]. "<br>". "Email: ".$row["Skostoerelse"]. "<br><br>";
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
