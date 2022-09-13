@@ -49,7 +49,7 @@ $con = mysqli_connect('localhost','aemk01_skp-dp_sd','q452zp4z','aemk01_skp_dp_s
 <div class="container-fluid">
     <div id="columnchart12" style="width: 100%; height: 500px;"></div>
 </div>
-      <p><a href="index.php">Start</a></p>
-      <p><a href="statistik.php">Numre</a></p>
+<center><p><a href="index.php">Start</a></p></center>
+<center><p><a href="statistik.php">Numre</a></p></center>
 </body>
 </html>

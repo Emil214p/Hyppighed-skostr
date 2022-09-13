@@ -43,7 +43,7 @@
             </div>        
         </div>
     </div>
-    <p><a href="statistik.php">Numre</a></p>
-    <p><a href="statistik1.php">Charts</a></p>
+    <center><p><a href="statistik.php">Numre</a></p></center>
+    <center><p><a href="statistik1.php">Charts</a></p></center>
 </body>
 </html>

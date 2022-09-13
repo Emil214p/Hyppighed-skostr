@@ -18,7 +18,7 @@ $conn->close();
   <head>
  </head>
   <body>
-      <p><a href="index.php">Start</a></p>
-      <p><a href="statistik1.php">Charts</a></p>
+      <center><p><a href="index.php">Start</a></p></center>
+      <center><p><a href="statistik1.php">Charts</a></p></center>
   </body>
 </html>
