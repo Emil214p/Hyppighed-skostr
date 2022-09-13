@@ -19,7 +19,7 @@ $con = mysqli_connect('localhost','aemk01_skp-dp_sd','q452zp4z','aemk01_skp_dp_s
 
                 ['Skostørrelse'],
                 <?php
-                $query = "SELECT * from skostoerrelse";
+                $query = "SELECT Skostoerelse from skostoerrelse";
 
                 $exec = mysqli_query($con,$query);
                 while($row = mysqli_fetch_array($exec)){
