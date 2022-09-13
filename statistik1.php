@@ -1,48 +1,55 @@
+<?php
+$con = mysqli_connect('localhost','aemk01_skp-dp_sd','q452zp4z','aemk01_skp_dp_sde_dk');
+?>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <!--Load the AJAX API-->
+<head>
+    <meta charset="utf-8">
+    <title>Skostørrelser</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
 
-      // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
+                ['Skostørrelse'],
+                <?php
+                $query = "SELECT * from skostoerrelse";
 
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.charts.setOnLoadCallback(drawChart);
+                $exec = mysqli_query($con,$query);
+                while($row = mysqli_fetch_array($exec)){
 
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
+                    echo "[".$row['Skostoerelse']."],";
+                }
+                ?>
 
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Mushrooms', 3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-          ['Pepperoni', 2]
-        ]);
+            ]);
 
-        // Set chart options
-        var options = {'title':'How Much Pizza I Ate Last Night',
-                       'width':400,
-                       'height':300};
+            var options = {
+                title: 'Skostørrelser',
+                pieHole: 0.5,
+                pieSliceTextStyle: {
+                    color: 'white',
+                },
+                legend: 'none'
+            };
+            var chart = new google.visualization.Histogram(document.getElementById("columnchart12"));
+            chart.draw(data,options);
+        }
 
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
     </script>
-  </head>
 
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-    <p><a href="index.php">Start</a></p>
-    <p><a href="statistik.php">Numre</a></p>
-  </body>
+</head>
+<body>
+<div class="container-fluid">
+    <div id="columnchart12" style="width: 100%; height: 500px;"></div>
+</div>
+      <p><a href="index.php">Start</a></p>
+      <p><a href="statistik.php">Numre</a></p>
+</body>
 </html>
